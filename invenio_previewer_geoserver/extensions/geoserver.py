@@ -15,19 +15,6 @@ def can_preview(file):
     return file.is_local() and file.has_extensions(".json")
 
 
-def render(file):
-    """Extract JSON contents for rendering."""
-    with file.open() as fp:
-        encoding = detect_encoding(fp, default="utf-8")
-        try:
-            file_content = fp.read().decode(encoding)
-            return file_content
-        except UnicodeDecodeError:
-            return _(
-                "Error decoding the file. Are you sure it is '{encoding}'?"
-            ).format(encoding)
-
-
 def preview(file):
     """Render WMS from a JSON-LD file."""
     with file.open() as fp:
