@@ -1,0 +1,8 @@
+{%- extends config.PREVIEWER_ABSTRACT_TEMPLATE %}
+
+{% block panel %}
+  <div id="map"
+       data-base-url="{{ base_url }}"
+       data-layer-name="{{ layer_name }}"
+  ></div>
+{% endblock %}
